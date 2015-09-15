@@ -34,8 +34,8 @@ Bacteria [] colony;
   void move()
   {     
    //lots of java!   
-   bactX = bactX + (int)(Math.random()*2)-1;
-   bactY = bactY + (int)(Math.random()*2)-1;
+   bactX = bactX + (int)(Math.random()*3)-1;
+   bactY = bactY + (int)(Math.random()*3)-1;
    // if(bactX >= 800){
    // 		bactX = bactX + (int)(Math.random()*20)-20;
    // }
