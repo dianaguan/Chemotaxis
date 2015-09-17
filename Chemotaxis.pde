@@ -36,19 +36,15 @@ Bacteria [] colony;
   void move()
   {     
    //lots of java!   
+   //move to mouseX, mouseY. Mouse speed move to variable. 
    bactX = bactX + (int)(Math.random()*7)-3;
    bactY = bactY + (int)(Math.random()*7)-3;
-   // if(bactX >= 800){
-   // 		bactX = bactX + (int)(Math.random()*20)-20;
-   // }
-   // if(bactY >= 500){
-   // 		bactY = bactY + (int)(Math.random()*2)+20;
-   // }
+
   }
   void show()
   {
   	noStroke();
     fill(bactColor,bactColor2, bactColor3);
-    ellipse(bactX, bactY, 10,10);
+    ellipse(bactX, bactY, 15,15);
   }
  }
