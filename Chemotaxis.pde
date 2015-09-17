@@ -63,6 +63,6 @@ Bacteria [] colony;
   {
   	noStroke();
     fill(bactColor,bactColor2, bactColor3);
-    ellipse(bactX, bactY, 25, 25);
+    ellipse(bactX, bactY, 10, 10);
   }
  }
