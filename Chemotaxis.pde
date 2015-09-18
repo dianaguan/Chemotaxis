@@ -1,4 +1,6 @@
 //declare bacteria variables here 
+PImage img;
+PImage img2;
 Bacteria [] colony;
  void setup()   
  {     
@@ -10,17 +12,21 @@ Bacteria [] colony;
    for (int i = 0; i < colony.length; i++){
    		colony[i] = new Bacteria();
    }
+   img = loadImage ("cat-3.jpg");
+   img2 = loadImage ("download.jpg");
  }   
  void draw()   
  {    
    //move and show the bacteria   
    background(170, 226, 255);
-   fill(120,31,55);
-   rect(mouseX, mouseY, 15,15);
+   // fill(120,31,55);
+   // rect(mouseX, mouseY, 15,15);
    	//Bacteria one = new Bacteria();
    	for (int i = 0; i < colony.length; i++){
     colony[i].move();
     colony[i].show();
+    image(img,mouseX,mouseY);
+    img.resize(0,50);
  }  
 }
  
@@ -31,9 +37,10 @@ Bacteria [] colony;
   Bacteria(){
     bactX = (int)(Math.random()*801);
     bactY = (int)(Math.random()*501);
-    bactColor = (int)(Math.random()*255);
-    bactColor2 = (int)(Math.random()*255);
-    bactColor3 = (int)(Math.random()*255);
+    // bactColor = (int)(Math.random()*255);
+    // bactColor2 = (int)(Math.random()*255);
+    // bactColor3 = (int)(Math.random()*255);
+    bactColor = color((int)(Math.random()*255),(int)(Math.random()*255),(int)(Math.random()*255));
   }
   void move()
   {     
@@ -62,7 +69,9 @@ Bacteria [] colony;
   void show()
   {
   	noStroke();
-    fill(bactColor,bactColor2, bactColor3);
-    ellipse(bactX, bactY, 5, 5);
+    fill(bactColor);
+    //ellipse(bactX, bactY, 25, 25);
+    image(img2,bactX,bactY);
+    img2.resize(0,30);
   }
  }
