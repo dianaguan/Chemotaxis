@@ -15,6 +15,8 @@ import java.io.IOException;
 public class Chemotaxis extends PApplet {
 
 //declare bacteria variables here 
+PImage img;
+PImage img2;
 Bacteria [] colony;
  public void setup()   
  {     
@@ -26,46 +28,67 @@ Bacteria [] colony;
    for (int i = 0; i < colony.length; i++){
    		colony[i] = new Bacteria();
    }
+   img = loadImage ("cat-3.jpg");
+   img2 = loadImage ("download.jpg");
  }   
  public void draw()   
  {    
    //move and show the bacteria   
    background(170, 226, 255);
-
+   // fill(120,31,55);
+   // rect(mouseX, mouseY, 15,15);
    	//Bacteria one = new Bacteria();
    	for (int i = 0; i < colony.length; i++){
     colony[i].move();
     colony[i].show();
+    image(img,mouseX,mouseY);
+    img.resize(0,50);
  }  
 }
  
+
  class Bacteria   
  {
   int bactX, bactY, bactColor, bactColor2, bactColor3;
   Bacteria(){
     bactX = (int)(Math.random()*801);
     bactY = (int)(Math.random()*501);
-    bactColor = (int)(Math.random()*255);
-    bactColor2 = (int)(Math.random()*255);
-    bactColor3 = (int)(Math.random()*255);
+    // bactColor = (int)(Math.random()*255);
+    // bactColor2 = (int)(Math.random()*255);
+    // bactColor3 = (int)(Math.random()*255);
+    bactColor = color((int)(Math.random()*255),(int)(Math.random()*255),(int)(Math.random()*255));
   }
   public void move()
   {     
    //lots of java!   
-   bactX = bactX + (int)(Math.random()*7)-3;
-   bactY = bactY + (int)(Math.random()*7)-3;
-   // if(bactX >= 800){
-   // 		bactX = bactX + (int)(Math.random()*20)-20;
-   // }
-   // if(bactY >= 500){
-   // 		bactY = bactY + (int)(Math.random()*2)+20;
-   // }
+   //move to mouseX, mouseY. Mouse speed move to variable. 
+   // bactX = bactX + (int)(Math.random()*7)-3;
+   // bactY = bactY + (int)(Math.random()*7)-3;
+    if (bactX < mouseX)
+    {
+   		bactX = bactX + (int)(Math.random()*7)-1;
+    }
+   	else 
+   	{
+   		bactX = bactX + (int)(Math.random()*7)-8;
+   	}
+
+   	if (bactY < mouseY)
+   	{
+		bactY = bactY + (int)(Math.random()*7)-1;
+	}
+   	else 
+   	{
+   		bactY = bactY + (int)(Math.random()*7)-8;
+   	}
   }
   public void show()
   {
   	noStroke();
-    fill(bactColor,bactColor2, bactColor3);
-    ellipse(bactX, bactY, 10,10);
+    fill(bactColor);
+    //ellipse(bactX, bactY, 25, 25);
+    image(img2,bactX,bactY);
+    img2.resize(0,30);
   }
  }
   static public void main(String[] passedArgs) {
